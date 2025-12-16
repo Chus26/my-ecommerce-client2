@@ -1,0 +1,396 @@
+.recContainer {
+  display: flex;
+  align-items: flex-start; /* 👈 Cho bong bóng đi theo chiều cao nội dung */
+  gap: 1rem;
+  padding: 1.5rem;
+  background-color: #f8fafc;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  margin-top: 2rem;
+}
+
+
+.botWrapper {
+  flex-shrink: 0;
+  margin-top: 10px; /* 👈 để khung bot khớp với đầu bong bóng */
+}
+
+
+.botImage {
+  height: 150px;
+  width: auto;
+  max-width: 150px;
+  display: block;
+  object-fit: cover;
+  animation: botEntry 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+  border-radius: 8px;
+}
+
+.botImage.botThinking {
+  animation: botEntry 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+.bubbleWrapper {
+  flex-grow: 1;
+  position: relative;
+  min-width: 0;
+  animation: bubbleEntry 0.5s ease-out 0.1s forwards;
+  opacity: 0;
+}
+
+.bubble {
+  position: relative;
+  background-color: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 25px;
+  padding: 1.25rem 1.5rem;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.04);
+}
+
+.bubble::before {
+  content: "";
+  position: absolute;
+  top: 30px;
+  left: -18px;
+  width: 22px;
+  height: 22px;
+  background-color: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 50%;
+  z-index: 2;
+  opacity: 0;
+  animation: dotEntry 0.4s ease-out 0.3s forwards;
+}
+
+.bubble::after {
+  content: "";
+  position: absolute;
+  top: 55px;
+  left: -30px;
+  width: 14px;
+  height: 14px;
+  background-color: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 50%;
+  z-index: 2;
+  opacity: 0;
+  animation: dotEntry 0.4s ease-out 0.4s forwards;
+}
+
+@keyframes botEntry {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes bubbleEntry {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes dotEntry {
+  from {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+.bubbleTitle {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #111827;
+  margin: 0 0 4px 0;
+}
+
+.bubbleSub {
+  font-size: 0.875rem;
+  color: #4b5563;
+  margin: 0 0 1rem 0;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px dashed #e5e7eb;
+}
+
+/* Giữ lưới sản phẩm gọn hơn */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); /* 👈 thu hẹp card */
+  gap: 0.75rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Card gọn, cao vừa nội dung */
+.card {
+  border: 1px solid #f3f4f6;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  transition: all 0.2s ease-in-out;
+  text-decoration: none;
+  color: inherit;
+  height: auto; /* 👈 co theo nội dung */
+  min-height: unset;
+  padding-bottom: 0.5rem; /* 👈 thêm khoảng cách nhỏ ở đáy */
+}
+
+/* Ảnh sản phẩm thấp hơn */
+.cardImage {
+  width: 100%;
+  height: 110px; /* 👈 giảm từ 140px xuống */
+  object-fit: cover;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+/* Nội dung card gọn gàng hơn */
+.body {
+  padding: 0.75rem; /* 👈 giảm padding */
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1;
+  text-align: center;
+}
+
+/* Tên sản phẩm ngắn hơn */
+.name {
+  font-weight: 600;
+  font-size: 13.5px;
+  line-height: 1.3;
+  max-height: 34px; /* 👈 chỉ cho tối đa 2 dòng */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+/* Lý do và gợi ý rút gọn */
+.reason,
+.advice {
+  font-size: 12.5px;
+  line-height: 1.4;
+  padding: 6px 10px;
+  border-radius: 6px;
+  margin: 2px 0 0 0;
+}
+
+/* Giá sản phẩm sát hơn */
+.meta {
+  margin-top: 6px;
+  padding-top: 4px;
+}
+
+.price {
+  font-weight: 700;
+  color: #be123c;
+  font-size: 14px;
+}
+
+
+.skeleton {
+  min-height: 150px;
+  width: 100%;
+  border-radius: 8px;
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: pulse 1.5s infinite;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #6b7280;
+  font-weight: 500;
+}
+
+.loadingBubble {
+  padding: 0;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+}
+
+@media (max-width: 768px) {
+  .recContainer {
+    align-items: flex-start;
+    gap: 0.5rem;
+    min-height: 0;
+  }
+  .botWrapper {
+    position: relative;
+    height: 110px;
+    align-self: flex-start;
+    width: auto;
+  }
+  .botImage {
+    position: relative;
+    height: 100%;
+    z-index: 1;
+  }
+  .bubbleWrapper {
+    position: relative;
+    top: auto;
+    left: auto;
+    bottom: auto;
+    margin-left: 0;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+  }
+  .bubble::before,
+  .bubble::after {
+    display: none;
+  }
+}
+
+@media (max-width: 500px) {
+  .recContainer {
+    flex-direction: column;
+    align-items: center;
+  }
+  .botWrapper {
+    align-self: center;
+  }
+  .bubble::before,
+  .bubble::after {
+    display: none;
+  }
+  .bubbleTitle,
+  .bubbleSub {
+    text-align: center;
+  }
+  .grid,
+  .itemList {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* 🫧 Cho bong bóng co đúng kích thước nội dung */
+.bubbleWrapper {
+  display: inline-flex;
+  width: auto;
+  max-width: 100%;
+  align-items: flex-start;
+}
+
+.bubble {
+  display: inline-block;
+  background-color: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 25px;
+  padding: 1.25rem 1.5rem;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.04);
+  width: fit-content; /* 👈 co đúng theo nội dung */
+  max-width: 90%;
+  animation: bubbleEntry 0.5s ease-out forwards, bubblePop 0.4s ease-out 0.5s forwards; /* 👈 thêm hiệu ứng phồng nhẹ */
+  transform-origin: left top;
+}
+
+/* 🩵 Cho khung phồng nhẹ khi dữ liệu gợi ý load xong */
+@keyframes bubblePop {
+  0% {
+    transform: scale(0.97);
+  }
+  60% {
+    transform: scale(1.03);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* ⚙ Grid gọn gàng, không kéo to khung bong bóng */
+.grid {
+  display: inline-grid; /* 👈 chuyển sang inline-grid để bubble ôm */
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 0.75rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: fit-content; /* 👈 co đúng chiều ngang */
+  max-width: 100%;
+}
+
+/* ===== DÁN VÀO CUỐI FILE: AccessoryRecommendations.module.css ===== */
+
+/* * 1. CSS cho hiệu ứng gõ chữ
+ * Class này sẽ được tự động thêm/xóa bởi React
+*/
+.typingEffect {
+  position: relative;
+  /* Dùng '::after' để tạo một con trỏ (cursor) ảo
+     mà không làm ảnh hưởng đến nội dung text
+  */
+  display: inline-block;
+}
+
+.typingEffect::after {
+  content: '|'; /* Ký tự con trỏ */
+  font-weight: bold;
+  font-size: 1.1em;
+  color: #007bff; /* Màu con trỏ (bạn có thể đổi màu) */
+  
+  /* Animation nhấp nháy */
+  animation: blink 0.7s infinite;
+}
+
+/* * 2. Animation Keyframes cho hiệu ứng 'blink' (nhấp nháy)
+*/
+@keyframes blink {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+/* * 3. CSS cho sản phẩm hiện ra mượt mà
+ * Thêm 'animation' vào class .grid mà bạn đã có.
+*/
+.grid {
+  /* ... (giữ nguyên các thuộc tính .grid cũ của bạn) ... */
+  
+  /* Thêm dòng này để sản phẩm hiện ra mờ dần */
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+/* * 4. Animation mờ dần
+*/
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

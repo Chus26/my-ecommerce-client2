@@ -1,0 +1,158 @@
+/* ===== THAY THẾ TOÀN BỘ FILE: src/components/OthersInfo.module.css ===== */
+
+/* --- Container chính (Giữ layout) --- */
+.othersInfoContainer {
+  max-width: 75rem; /* Giống .category */
+  margin: 0 auto;
+  padding: 0 15px; /* Thêm padding ngang cho an toàn */
+}
+
+/* --- 1. Thanh Dịch Vụ (FeatureBanner - Theme Tối Mới) --- */
+.featureBanner {
+  display: grid; /* Dùng Grid cho 4 cột */
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* 4 cột, tự xuống hàng */
+  gap: 1rem;
+  padding: 2.5rem 1.5rem;
+  background-color: #212529; /* Màu nền tối (dark) */
+  border-radius: 8px;
+  margin-bottom: 3rem; /* Khoảng cách với phần dưới */
+}
+
+.featureItem {
+  display: flex;
+  flex-direction: column; /* Icon trên, chữ dưới */
+  align-items: center; /* Căn giữa */
+  text-align: center;
+}
+
+.featureIcon {
+  font-size: 2.5rem; /* Kích thước icon */
+  color: #ffffff; /* Màu icon trắng */
+  margin-bottom: 1rem;
+}
+
+.featureItem h3 {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #ffffff; /* Chữ tiêu đề trắng */
+  margin: 0 0 0.25rem 0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.featureItem p {
+  font-size: 0.85rem;
+  color: #adb5bd; /* Màu chữ phụ (xám nhạt) */
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* --- 2. Thư viện ảnh Khách hàng (CustomerGallery - Giữ nguyên) --- */
+.customers {
+  margin-bottom: 3rem;
+  text-align: center;
+}
+.customers h3 {
+  font-weight: 700;
+  color: #555;
+  letter-spacing: 0.125rem;
+  font-size: 1rem;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+}
+.customerGallery {
+  display: flex;
+  overflow-x: hidden;
+  gap: 1.5rem;
+  padding-bottom: 1rem;
+  /* Hiệu ứng mờ dần ở 2 bên (nâng cao) */
+  -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+.customerImage {
+  height: 200px;
+  width: auto;
+  min-width: 200px;
+  border-radius: 12px;
+  object-fit: cover;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease;
+}
+.customerGallery:hover .customerImage {
+  /* Tạm dừng animation cuộn JS, nhưng CSS hover vẫn chạy */
+  transform: scale(0.95);
+}
+.customerImage:hover {
+  transform: scale(1.1) !important; /* Phóng to ảnh được hover */
+}
+
+/* --- 3. Đánh giá Nổi bật (FeaturedReviews - Giữ nguyên) --- */
+.reviews {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+.reviews h3 {
+  font-weight: 700;
+  color: #555;
+  letter-spacing: 0.125rem;
+  font-size: 1rem;
+  text-transform: uppercase;
+  margin-bottom: 2rem;
+}
+.reviewList {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+.reviewCard {
+  background-color: #fff;
+  border: 1px solid #f0f0f0;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.reviewCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+.reviewComment {
+  font-size: 1rem;
+  color: #333;
+  font-style: italic;
+  line-height: 1.6;
+  margin: 0 0 1rem 0;
+}
+.reviewRating {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+.reviewAuthor {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #777;
+  margin: 0;
+}
+.statusText {
+  color: #777;
+  font-style: italic;
+}
+
+/* --- Responsive (Giữ nguyên) --- */
+@media (max-width: 768px) {
+  .featureBanner,
+  .customers,
+  .reviews {
+    margin-bottom: 2rem;
+  }
+  .reviewList {
+    grid-template-columns: 1fr; /* 1 cột trên mobile */
+  }
+  .customerGallery {
+    gap: 1rem;
+  }
+  .customerImage {
+    height: 160px;
+    min-width: 160px;
+  }
+}

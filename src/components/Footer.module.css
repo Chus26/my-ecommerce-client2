@@ -1,0 +1,128 @@
+/* ===== FILE: Footer.module.css (ĐÃ CẬP NHẬT) ===== */
+
+.footer {
+  width: 100%;
+  background-color: #1a1a1a; /* Màu nền tối hơn chút */
+  color: #a0a0a0; /* Màu chữ nhạt hơn */
+  font-style: normal; /* Bỏ italic mặc định */
+  font-size: 0.9rem; /* Cỡ chữ cơ bản */
+  line-height: 1.6;
+}
+
+.footer footer {
+  max-width: 75rem;
+  margin: 0 auto;
+  padding: 4rem 1rem; /* Giảm padding trên dưới, tăng padding ngang */
+  display: grid; /* Dùng Grid layout cho linh hoạt */
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Các cột tự động điều chỉnh */
+  gap: 2.5rem; /* Khoảng cách giữa các cột */
+}
+
+/* Style chung cho các cột */
+
+
+/* Cột thông tin cửa hàng */
+.storeInfo p {
+  margin-bottom: 0.6rem;
+}
+.storeInfo strong {
+  color: #d0d0d0; /* Làm nổi bật label */
+  margin-right: 5px;
+}
+.storeInfo a {
+  color: #a0a0a0;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+.storeInfo a:hover {
+  color: #ffffff; /* Màu trắng khi hover */
+}
+.logo {
+  max-width: 180px; /* Điều chỉnh kích thước logo */
+  height: auto;
+  margin-bottom: 1.5rem;
+  opacity: 0.9;
+}
+.paymentMethods {
+   max-width: 200px; /* Điều chỉnh kích thước ảnh payment */
+   height: auto;
+   margin-top: 1rem;
+   opacity: 0.8;
+}
+
+
+/* Tiêu đề các cột (H2) */
+.footer h2 {
+  color: #ffffff; /* Màu trắng cho tiêu đề */
+  font-weight: 600; /* Đậm hơn */
+  font-size: 1rem; /* Cỡ chữ */
+  text-transform: uppercase;
+  margin: 0 0 1.2rem 0; /* Chỉ margin dưới */
+  padding-bottom: 0.5rem; /* Padding dưới */
+  border-bottom: 1px solid #444; /* Đường kẻ dưới nhẹ */
+  display: inline-block; /* Chỉ rộng bằng nội dung */
+}
+
+/* Các link trong các cột */
+.footer nav p { /* Bọc các link trong <nav> và <p> */
+   margin-bottom: 0.6rem;
+}
+.footer nav a {
+  display: inline-block;
+  text-decoration: none;
+  color: #a0a0a0;
+  font-weight: 400; /* Bớt đậm */
+  font-size: 0.9rem;
+  transition: color 0.2s ease;
+}
+.footer nav a:hover {
+  color: #ffffff; /* Màu trắng khi hover */
+}
+
+/* Cột bản đồ */
+
+
+.mapEmbed iframe {
+  border-radius: 6px; /* Bo góc cho bản đồ */
+  height: 200px; /* Chiều cao mặc định, có thể điều chỉnh */
+  width: 100%; /* Đảm bảo iframe chiếm hết div */
+}
+
+/* Dòng Copyright */
+.copyright {
+  background-color: #000; /* Nền đen tuyền */
+  color: #777; /* Màu chữ xám */
+  font-size: 0.75rem; /* Cỡ chữ nhỏ */
+  text-align: center;
+  padding: 1rem 1rem;
+  font-style: normal;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .footer footer {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Cột nhỏ hơn trên tablet */
+    gap: 2rem;
+    padding: 3rem 1rem;
+  }
+   .mapEmbed iframe {
+      height: 180px; /* Giảm chiều cao map */
+   }
+}
+
+@media (max-width: 576px) {
+  .footer footer {
+    grid-template-columns: 1fr; /* 1 cột trên mobile */
+    text-align: center; /* Căn giữa nội dung */
+  }
+  .footer h2 {
+     display: block; /* Cho tiêu đề chiếm hết dòng */
+     border-bottom: none; /* Bỏ border dưới */
+     margin-bottom: 1rem;
+  }
+  .storeInfo {
+     display: flex;
+     flex-direction: column;
+     align-items: center; /* Căn giữa logo, payment methods */
+  }
+}

@@ -1,0 +1,345 @@
+/* ===== FILE: CheckOutPage.module.css (ĐÃ CẬP NHẬT) ===== */
+
+.checkout {
+  max-width: 75rem;
+  margin: 3rem auto 4rem auto; /* Đồng bộ margin */
+  padding: 0 15px; /* Padding ngang */
+  /* font-style: italic; Bỏ global italic */
+  box-sizing: border-box;
+}
+
+/* --- Checkout Banner --- */
+.checkout-banner {
+  background-color: #f8f9fa;
+  margin-bottom: 3rem;
+  display: flex;
+  justify-content: space-between;
+  padding: 2rem 2.5rem; /* Điều chỉnh padding */
+  align-items: center;
+  border-radius: 8px;
+  border: 1px solid #dee2e6; /* Thêm border nhẹ */
+}
+
+.checkout-banner h2 {
+  font-weight: 600;
+  color: #343a40;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 1.4rem; /* Giảm cỡ chữ chút */
+  margin: 0;
+  font-style: normal;
+}
+
+.checkout-banner > div {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem; /* Khoảng cách nhỏ giữa breadcrumb items */
+}
+
+.checkout-banner > div h3,
+.checkout-banner > div p {
+  font-weight: 500;
+  font-size: 0.85rem; /* Cỡ chữ nhỏ */
+  text-transform: uppercase;
+  margin: 0;
+  font-style: normal;
+}
+.checkout-banner > div h3 {
+  color: #6c757d; /* Màu xám */
+}
+.checkout-banner > div p {
+  color: #343a40; /* Màu đậm cho trang hiện tại */
+  font-weight: 600;
+}
+
+
+/* --- Main Heading "Chi tiết thanh toán" --- */
+.checkout > h3:first-of-type { /* Target heading này cụ thể hơn */
+  color: #212529;
+  font-size: 1.5rem; /* Cỡ chữ */
+  font-weight: 600;
+  margin: 0 0 2rem 0; /* Khoảng cách dưới */
+  text-transform: uppercase;
+  font-style: normal;
+  text-align: center; /* Căn giữa */
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #dee2e6;
+}
+
+/* --- Container (Form + Order Summary) --- */
+.container {
+  display: flex;
+  gap: 2.5rem; /* Khoảng cách giữa form và summary */
+}
+
+/* --- Left Side (Form) --- */
+.left {
+  flex: 3; /* Chiếm nhiều không gian hơn */
+}
+
+.left .form-control {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1.5rem; /* Tăng khoảng cách */
+  row-gap: 0.4rem; /* Khoảng cách giữa label và input */
+}
+
+.left .form-control label {
+  color: #495057; /* Màu chữ đậm hơn */
+  text-transform: uppercase;
+  font-weight: 600; /* Đậm hơn */
+  font-size: 0.8rem; /* Cỡ chữ nhỏ */
+  letter-spacing: 0.5px;
+  font-style: normal;
+}
+
+.left .form-control input {
+  outline: none;
+  color: #495057;
+  border: 1px solid #ced4da;
+  padding: 0.8rem 1rem; /* Tăng padding */
+  font-size: 0.95rem;
+  border-radius: 6px; /* Bo góc */
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  font-style: normal;
+}
+.left .form-control input:focus {
+   border-color: #80bdff;
+   box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
+}
+.left .form-control input::placeholder {
+  color: #adb5bd; /* Màu placeholder nhạt hơn */
+}
+/* Style riêng cho input readOnly */
+.left .form-control input[readOnly] {
+  background-color: #e9ecef; /* Nền xám nhạt */
+  cursor: not-allowed;
+  opacity: 0.8;
+}
+.left .form-control input[readOnly]:focus {
+   box-shadow: none; /* Bỏ shadow khi focus input readOnly */
+   border-color: #ced4da; /* Giữ border mặc định */
+}
+
+
+/* Nút "Đặt hàng" */
+.left button[type="submit"] {
+  border: none;
+  color: #fff;
+  background-color: #0d6efd; /* Màu xanh dương chính */
+  padding: 0.9rem 2rem; /* Padding lớn hơn */
+  font-size: 1rem; /* Cỡ chữ */
+  font-weight: 600; /* Đậm hơn */
+  font-style: normal; /* Bỏ italic */
+  cursor: pointer;
+  border-radius: 6px; /* Bo góc */
+  transition: background-color 0.2s ease;
+  width: 100%; /* Nút full width */
+  margin-top: 1rem; /* Khoảng cách với trường cuối */
+}
+.left button[type="submit"]:hover {
+  background-color: #0b5ed7; /* Đậm hơn khi hover */
+}
+
+/* --- Right Side (Order Summary) --- */
+.right {
+  flex: 2; /* Chiếm ít không gian hơn */
+}
+
+.right > .wrapper {
+  padding: 1.5rem 2rem; /* Điều chỉnh padding */
+  background-color: #f8f9fa; /* Nền xám nhạt */
+  border-radius: 8px; /* Bo góc */
+  border: 1px solid #dee2e6; /* Border nhẹ */
+}
+
+.wrapper > h2 { /* Tiêu đề "Đơn hàng của bạn" */
+  color: #212529;
+  font-weight: 600;
+  letter-spacing: normal; /* Bỏ letter spacing */
+  margin: 0 0 1.5rem 0; /* Chỉ margin dưới */
+  font-size: 1.25rem; /* To hơn chút */
+  text-transform: uppercase;
+  font-style: normal;
+  padding-bottom: 0.8rem;
+  border-bottom: 1px solid #dee2e6;
+}
+
+/* Item trong đơn hàng */
+.wrapper .item-order {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start; /* Căn trên nếu tên sản phẩm dài */
+  padding: 0.8rem 0; /* Tăng padding */
+  border-bottom: 1px solid #e9ecef; /* Border nhẹ hơn */
+  gap: 1rem; /* Khoảng cách giữa tên và giá */
+}
+
+.wrapper .item-order:last-of-type { /* Bỏ border cho item cuối */
+   border-bottom: none;
+   padding-bottom: 1.5rem; /* Tăng padding dưới cho item cuối */
+}
+
+
+.wrapper .item-order h3 {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #495057;
+  line-height: 1.4;
+  margin: 0;
+  font-style: normal;
+  flex-grow: 1;
+
+  /* Tự động xuống hàng */
+  word-break: break-word;
+  white-space: normal;
+}
+
+
+.wrapper .item-order p { /* Giá x Số lượng */
+  letter-spacing: normal; /* Bỏ letter spacing */
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #6c757d; /* Màu xám */
+  margin: 0;
+  font-style: normal;
+  white-space: nowrap; /* Tránh xuống dòng */
+  flex-shrink: 0; /* Không co lại */
+}
+
+/* Phần tổng cộng */
+.wrapper > .total {
+  margin-top: 1rem; /* Khoảng cách với item cuối */
+  padding-top: 1rem; /* Padding trên */
+  border-top: 2px solid #adb5bd; /* Border đậm hơn */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.wrapper > .total h3 { /* Chữ "Tổng cộng" */
+  color: #212529;
+  letter-spacing: normal;
+  font-size: 1rem;
+  text-transform: uppercase;
+  font-weight: 600; /* Đậm hơn */
+  margin: 0;
+  font-style: normal;
+}
+
+.wrapper > .total p { /* Giá tổng */
+  color: #dc3545; /* Màu đỏ */
+  font-size: 1.3rem; /* To hơn */
+  font-weight: 700; /* Đậm */
+  margin: 0;
+  font-style: normal;
+}
+
+/* --- Error Message --- */
+.error {
+  color: #dc3545; /* Màu đỏ */
+  font-size: 0.8rem;
+  margin-top: -0.8rem; /* Kéo lên gần input hơn */
+  margin-bottom: 1rem;
+  font-weight: 500;
+  font-style: normal;
+}
+
+/* --- Checkout page responsive --- */
+@media (max-width: 992px) { /* Tablet */
+  .checkout {
+    padding: 2rem 1.5rem; /* Giảm padding */
+  }
+  .container {
+    flex-direction: column-reverse; /* Đảo ngược: Summary lên trên, Form xuống dưới */
+    gap: 2.5rem;
+  }
+  .left {
+    margin-right: 0;
+    flex: 1; /* Reset flex */
+  }
+  .right {
+    flex: 1; /* Reset flex */
+  }
+}
+
+@media (max-width: 576px) { /* Mobile */
+  .checkout {
+    margin-top: 1rem; /* Giảm margin top */
+  }
+  .checkout-banner {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.5rem;
+    padding: 1.5rem;
+  }
+  .checkout-banner h2 {
+    font-size: 1.3rem;
+  }
+  .checkout > h3:first-of-type {
+    font-size: 1.3rem;
+    margin-bottom: 1.5rem;
+  }
+  .left .form-control input {
+     padding: 0.7rem 0.8rem;
+     font-size: 0.9rem;
+  }
+  .left button[type="submit"] {
+     padding: 0.8rem 1.5rem;
+     font-size: 0.95rem;
+  }
+  .right > .wrapper {
+     padding: 1.25rem 1.5rem;
+  }
+  .wrapper .item-order { padding: 0.6rem 0; }
+  .wrapper .item-order h3 { font-size: 0.85rem; }
+  .wrapper .item-order p { font-size: 0.85rem; }
+  .wrapper > .total p { font-size: 1.2rem; }
+}
+
+/* Bỏ margin-top lớn trên màn hình rất nhỏ nếu có header fixed */
+/* @media (max-width: 31.25rem) {
+   .checkout {
+     margin-top: 8rem;
+   }
+} */
+
+/* === THÊM CÁC CLASS NÀY VÀO CUỐI FILE CheckOutPage.module.css === */
+
+.paymentMethod {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid #e0e0e0;
+  margin-bottom: 0.75rem;
+}
+
+.paymentMethod h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.paymentMethod p {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #555;
+  font-style: italic;
+}
+
+.shippingNote {
+  margin-top: 1rem;
+  padding: 0.75rem;
+  background-color: #fffbeb; /* Màu vàng nhạt */
+  border: 1px solid #fde0a0;
+  border-radius: 4px;
+}
+
+.shippingNote p {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #d9534f; /* Màu đỏ cảnh báo */
+  text-align: center;
+  margin: 0;
+}

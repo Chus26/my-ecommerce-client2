@@ -1,0 +1,345 @@
+/* Shope page css */
+.shop {
+  max-width: 75rem;
+  margin: 4rem auto;
+  padding: 0 15px; /* Thêm padding ngang để không bị sát viền */
+  font-style: italic; /* Có vẻ bạn thích font này? */
+}
+
+/* --- Shop Banner --- */
+.shop-banner {
+  background-color: #f8f9fa; /* Màu nền nhẹ hơn */
+  margin-bottom: 3rem; /* Tăng khoảng cách */
+  display: flex;
+  justify-content: space-between;
+  padding: 2.5rem 3rem; /* Điều chỉnh padding */
+  align-items: center;
+  border-radius: 8px; /* Thêm bo góc nhẹ */
+}
+
+.shop-banner > h2 {
+  font-weight: 600; /* Đậm hơn */
+  color: #343a40; /* Màu chữ tối hơn */
+  text-transform: uppercase;
+  letter-spacing: 0.05em; /* Giảm letter spacing */
+  font-size: 1.6rem;
+  margin: 0;
+}
+
+.shop-banner > p {
+  color: #6c757d; /* Màu xám */
+  font-size: 0.9rem; /* Cỡ chữ nhỏ hơn */
+  font-weight: 500;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+/* --- Categories Section --- */
+.categories {
+  display: flex;
+  flex-direction: column; /* Luôn xếp top/bottom theo cột */
+  gap: 2rem; /* Khoảng cách giữa top và bottom */
+}
+
+/* Top: Filter Controls */
+.categories > .top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.5rem; /* Khoảng cách giữa các cụm controls */
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #dee2e6; /* Border nhẹ */
+}
+
+/* Cụm input tìm kiếm */
+.categories > .top > div:first-child {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-grow: 1; /* Cho phép input chiếm nhiều không gian */
+}
+
+/* Bỏ thẻ h3 không cần thiết */
+/* .categories > .top h3 { ... } */
+
+.categories > .top input {
+  flex-grow: 1; /* Input chiếm hết phần còn lại */
+  max-width: 400px; /* Giới hạn độ rộng */
+  outline: none;
+  padding: 0.6rem 0.8rem;
+  border: 1px solid #ced4da;
+  border-radius: 6px;
+  font-size: 0.9rem;
+}
+.categories > .top input:focus {
+   border-color: #80bdff;
+   box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
+}
+
+/* Cụm select sắp xếp */
+.select { /* Giữ tên class này */
+  display: flex;
+  justify-content: flex-end; /* Căn phải */
+}
+
+.select > select {
+  min-width: 180px; /* Độ rộng tối thiểu */
+  padding: 0.6rem 0.8rem;
+  border: 1px solid #ced4da;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  color: #495057;
+  background-color: #fff;
+  cursor: pointer;
+}
+.select > select:focus {
+   border-color: #80bdff;
+   box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
+}
+
+
+/* Bottom: Sidebar + Product List */
+.bottom {
+  display: flex;
+  gap: 2rem; /* Khoảng cách giữa sidebar và content */
+}
+
+/* Left: Sidebar */
+.bottom > .left {
+  flex: 0 0 220px; /* Độ rộng cố định, không co giãn */
+}
+
+/* Style cho tiêu đề chính của sidebar (h3 - "Danh mục") */
+.left h3 {
+  font-size: 1.1rem;      /* Cỡ chữ */
+  font-weight: 700;       /* Đậm hơn */
+  color: #1a1a1a;          /* Màu chữ tối */
+  text-transform: uppercase; /* Viết hoa */
+  padding: 1rem 1.25rem;  /* Padding giống h4 */
+  margin: 0 0 1rem 0;    /* Khoảng cách dưới */
+  border-bottom: 1px solid #e0e0e0; /* Đường kẻ dưới */
+  font-style: normal;     /* Bỏ italic nếu không muốn */
+  background-color: #f8f9fa; /* Nền nhẹ giống header bảng */
+  border-radius: 8px 8px 0 0; /* Bo góc trên (nếu sidebar có bo góc) */
+}
+
+/* (Optional) Nếu sidebar của bạn chưa có nền/bo góc, thêm cái này: */
+.bottom > .left {
+  flex: 0 0 220px;
+  background-color: #fff; /* Nền trắng */
+  border-radius: 8px;    /* Bo góc */
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05); /* Shadow nhẹ */
+  padding-bottom: 1rem; /* Padding dưới */
+  /* Thêm overflow: hidden nếu bo góc không ăn */
+  /* overflow: hidden; */
+}
+
+/* Điều chỉnh margin top của h4 đầu tiên sau h3 */
+.left h4:first-of-type {
+  margin-top: 0.5rem; /* Giảm khoảng cách trên của "Apple" */
+}
+
+.left h4 { /* Tiêu đề "Apple" */
+  width: 100%;
+  background-color: #343a40; /* Màu nền tối */
+  padding: 0.75rem 1.25rem;
+  font-size: 0.9rem;
+  color: #fff; /* Chữ trắng */
+  font-weight: 600; /* Đậm hơn */
+  text-transform: uppercase;
+  margin: 0 0 0.5rem 0; /* Bỏ margin top/bottom mặc định */
+  border-radius: 4px 4px 0 0; /* Bo góc trên */
+  box-sizing: border-box;
+}
+
+.left h5 { /* Tiêu đề phụ (Iphone & Mac, ...) */
+  width: 100%;
+  background-color: #f1f3f5; /* Nền xám nhạt */
+  padding: 0.6rem 1.25rem;
+  font-size: 0.85rem;
+  color: #495057; /* Màu chữ tối hơn */
+  font-weight: 600;
+  text-transform: uppercase;
+  margin: 1rem 0 0.5rem 0;
+  box-sizing: border-box;
+}
+
+.left ul {
+  list-style: none;
+  padding: 0 0 0 1.25rem; /* Chỉ thụt lề trái */
+  margin: 0;
+}
+
+.left li {
+  padding: 0.4rem 0; /* Khoảng cách giữa các mục */
+}
+
+.left a {
+  color: #6c757d; /* Màu chữ xám */
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-style: normal; /* Bỏ italic nếu không cần */
+  transition: color 0.2s ease;
+}
+
+.left a:hover {
+  color: #0d6efd; /* Màu xanh dương khi hover */
+  cursor: pointer;
+}
+
+.left a.active {
+  color: #0d6efd; /* Màu xanh dương cho mục active */
+  font-weight: 600; /* Đậm hơn */
+}
+
+
+/* ================================================== */
+/* === SỬA PHẦN NÀY ĐỂ FIX PHÂN TRANG === */
+/* ================================================== */
+
+/* Right: Product List + Pagination */
+.bottom > .right {
+  flex: 1; /* Chiếm hết phần còn lại */
+  /* Bỏ display: flex ở đây */
+  margin-top: 0; /* Bỏ margin-top ở đây */
+  display: flex; /* <<<< THÊM LẠI */
+  flex-direction: column; /* <<<< LUÔN LÀ CỘT */
+}
+
+/* Bỏ class .column không cần thiết nữa */
+/* .bottom > .right.column { ... } */
+
+
+/* --- Pagination --- */
+.pagination {
+  text-align: right; /* Căn phải nội dung (button + text) */
+  margin-top: 2rem; /* Khoảng cách với danh sách sản phẩm */
+  padding-top: 1rem;
+  border-top: 1px solid #dee2e6; /* Đường kẻ phân cách nhẹ */
+  display: flex; /* Dùng flex để căn chỉnh */
+  justify-content: flex-end; /* Căn các nút qua phải */
+  align-items: center; /* Căn giữa theo chiều dọc */
+  gap: 0.5rem; /* Khoảng cách giữa các nút và text */
+}
+
+/* Style cho các nút phân trang (<< < 1 2 3 > >>) */
+.pagination button,
+.pagination span:not(.page-ellipsis) { /* Áp dụng cho cả span số trang cũ */
+  display: inline-flex; /* Để căn chỉnh icon/text tốt hơn */
+  align-items: center;
+  justify-content: center;
+  min-width: 36px; /* Độ rộng tối thiểu */
+  height: 36px; /* Chiều cao */
+  padding: 0 0.5rem; /* Padding ngang */
+  font-size: 0.85rem;
+  color: #0d6efd; /* Màu xanh dương */
+  background-color: #fff;
+  border: 1px solid #dee2e6; /* Border xám */
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+  user-select: none; /* Tránh chọn text khi click nhanh */
+}
+
+.pagination button:hover:not(:disabled),
+.pagination span:not(.page-ellipsis):hover {
+  background-color: #e9ecef; /* Nền xám nhẹ khi hover */
+  border-color: #adb5bd;
+}
+
+.pagination button:disabled {
+  color: #adb5bd; /* Màu xám mờ */
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+/* Style cho số trang hiện tại */
+.pagination .page-number, /* Class cũ của bạn */
+.pagination button[aria-current="page"] /* Hoặc dùng aria-current nếu bạn sửa JSX */
+ {
+  background-color: #0d6efd; /* Nền xanh */
+  color: #fff; /* Chữ trắng */
+  border-color: #0d6efd;
+  font-weight: 600;
+  cursor: default;
+}
+
+/* Dấu "..." */
+.page-ellipsis {
+  padding: 0 6px;
+  color: #6c757d;
+  user-select: none;
+  align-self: center; /* Căn giữa dấu ... */
+}
+
+/* Text "Hiển thị X-Y / Z kết quả" */
+.pagination p {
+  color: #6c757d;
+  font-size: 0.85rem;
+  margin: 0;
+  margin-left: 1rem; /* Khoảng cách với các nút */
+  font-style: normal; /* Bỏ italic */
+}
+
+/* --- Shop responsive (Giữ nguyên hoặc điều chỉnh) --- */
+@media (max-width: 768px) { /* Chỉnh breakpoint */
+  .shop {
+     margin: 2rem auto;
+  }
+  .shop-banner {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.5rem;
+    padding: 1.5rem;
+  }
+  .categories > .top {
+    flex-direction: column;
+    align-items: stretch; /* Kéo dài input/select */
+  }
+  .categories > .top > div:first-child {
+      width: 100%;
+  }
+  .categories > .top input {
+      max-width: none;
+      width: 100%;
+  }
+  .select {
+      justify-content: flex-start; /* Select căn trái */
+  }
+  .select > select {
+      width: 100%; /* Select full width */
+  }
+
+  .bottom {
+    flex-direction: column; /* Sidebar xếp trên content */
+  }
+  .bottom > .left {
+     flex: 0 0 auto; /* Bỏ flex-basis */
+     width: 100%; /* Sidebar full width */
+     margin-bottom: 1.5rem;
+  }
+
+  /* Pagination trên mobile */
+  .pagination {
+      justify-content: center; /* Căn giữa pagination */
+      flex-wrap: wrap; /* Cho phép xuống dòng nếu không đủ chỗ */
+  }
+   .pagination p {
+       width: 100%; /* Text kết quả xuống dòng riêng */
+       text-align: center;
+       margin-top: 0.5rem;
+       margin-left: 0;
+   }
+}
+
+@media (max-width: 576px) { /* Breakpoint nhỏ hơn */
+   .shop {
+      margin-top: 8rem; /* Có vẻ bạn có header fixed? */
+   }
+   .pagination button,
+   .pagination span:not(.page-ellipsis) {
+      min-width: 32px;
+      height: 32px;
+      font-size: 0.8rem;
+   }
+}

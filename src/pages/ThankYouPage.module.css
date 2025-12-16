@@ -1,0 +1,132 @@
+.thankYouContainer {
+  max-width: 600px;
+  margin: 4rem auto;
+  padding: 2rem;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.botContainer {
+  position: relative;
+  margin-bottom: 1rem;
+}
+
+.botImage {
+  height: 110px; /* ✅ Tăng từ 80px lên 110px cho nổi bật hơn */
+  width: auto;
+  animation: botCelebrate 2.5s ease-in-out infinite;
+}
+
+@keyframes botCelebrate {
+  0% {
+    transform: translateY(0) scale(1) rotate(0deg);
+  }
+  30% {
+    transform: translateY(-12px) scale(1.1) rotate(-6deg);
+  }
+  60% {
+    transform: translateY(0) scale(1.05) rotate(4deg);
+  }
+  100% {
+    transform: translateY(0) scale(1) rotate(0deg);
+  }
+}
+
+.botThought {
+  position: absolute;
+  top: -18px;
+  left: 75%; /* căn sang phải chút để hợp với bot to hơn */
+  background-color: #e9ecef;
+  color: #495057;
+  padding: 0.3rem 0.7rem;
+  border-radius: 12px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  white-space: nowrap;
+  animation: thoughtPop 2.5s ease-in-out infinite;
+}
+
+@keyframes thoughtPop {
+  0% {
+    opacity: 0;
+    transform: translateY(0) scale(0.5);
+  }
+  20% {
+    opacity: 0.8;
+    transform: translateY(-5px) scale(0.8);
+  }
+  30% {
+    opacity: 1;
+    transform: translateY(-15px) scale(1.1);
+  }
+  60% {
+    opacity: 1;
+    transform: translateY(0) scale(0.9);
+  }
+  90% {
+    opacity: 0;
+    transform: translateY(0) scale(0.5);
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.thankYouContainer h1 {
+  color: #2a9d8f;
+  font-size: 2rem;
+  margin: 0;
+}
+
+.thankYouContainer p {
+  color: #555;
+  font-size: 1rem;
+  line-height: 1.6;
+  margin: 0.5rem 0;
+}
+
+.actions {
+  margin-top: 1.5rem;
+  display: flex;
+  gap: 1rem;
+}
+
+.button {
+  display: inline-block;
+  padding: 0.8rem 1.5rem;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.button:not(.secondary) {
+  background-color: #0d6efd;
+  color: #fff;
+}
+
+.button:not(.secondary):hover {
+  background-color: #0b5ed7;
+  transform: translateY(-2px);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.secondary {
+  background-color: #f8f9fa;
+  color: #555;
+  border: 1px solid #dee2e6;
+}
+
+.secondary:hover {
+  background-color: #e9ecef;
+  transform: translateY(-2px);
+}

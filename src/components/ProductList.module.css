@@ -1,0 +1,134 @@
+/* Product List CSS */
+.product-list {
+  margin-bottom: 1rem;
+  width: 100%;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 20px;
+}
+
+.pagination button {
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  background: #fff;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.pagination button:hover:not(:disabled) {
+  background: #eee;
+}
+
+.pagination button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.pagination .active {
+  background: #e53935;
+  color: #fff;
+  border-color: #e53935;
+  font-weight: bold;
+}
+
+
+.card {
+  position: relative;
+  overflow: hidden;
+  text-align: center;        /* căn giữa chữ */
+  padding: 12px;
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+  transition: transform 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+}
+
+/* Ảnh KHÔNG BỊ CẮT:
+   - Dùng object-fit: contain
+   - Giữ tỉ lệ, không crop
+   - Dùng aspect-ratio để thẻ ảnh đều nhau */
+.card img {
+  width: 100%;
+  aspect-ratio: 1 / 1;      /* ô vuông gọn gàng */
+  object-fit: contain;      /* không cắt hình */
+  background: #f7f7f7;      /* nền xám nhạt để lộ "letterbox" */
+  border-radius: 8px;
+  margin-bottom: 8px;
+  cursor: pointer;
+}
+
+.soldOutBanner {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background: rgba(255, 255, 255, 0.85);
+  color: #000;
+  font-weight: bold;
+  text-transform: uppercase;
+  padding: 10px 30px;
+  font-size: 16px;
+  pointer-events: none;
+  user-select: none;
+}
+
+.soldOutImg {
+  opacity: 0.35;
+  pointer-events: none; /* tắt click ảnh nếu hết hàng */
+}
+
+/* GRID layout gọn, responsive */
+.container {
+  display: grid;  /* <- chỉ dùng grid, bỏ phần flex cũ để hết cảnh báo chồng chéo */
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 16px;
+}
+
+/* Tiêu đề & mô tả */
+.name {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 4px 0 6px;
+  line-height: 1.3;
+}
+
+/* clamp chuẩn, không cảnh báo vendorPrefix */
+.clampBase {
+  display: -webkit-box;        /* cần cho -webkit-line-clamp */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  word-break: break-word;
+}
+
+.clamp2 {
+  -webkit-line-clamp: 2;       /* WebKit */
+  line-clamp: 2;               /* Spec hiện đại -> không cảnh báo */
+}
+
+.shortDesc {
+  font-size: 13px;
+  color: #555;
+  margin: 0 0 8px;
+}
+
+.price {
+  font-size: 15px;
+  font-weight: 700;
+  color: #e53935;
+}
+
+/* Responsive */
+@media (max-width: 33.25rem) {
+  .container {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,287 @@
+/* ===== THAY THẾ TOÀN BỘ FILE: MainNavigation.module.css (CÓ LOGO) ===== */
+
+.header {
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
+}
+
+.mainNav {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+  display: flex;
+  align-items: center;
+  /* Bỏ 'justify-content: space-between;' */
+  height: 65px;
+}
+
+/* === LOGO & BRAND NAME (ĐÃ SỬA) === */
+.logoLink {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem; /* Khoảng cách giữa Logo và Chữ */
+  text-decoration: none !important;
+  margin-right: 2rem; /* Giữ khoảng cách với menu */
+  flex-shrink: 0;
+}
+
+.logoImg {
+  height: 40px; /* Chiều cao logo (tùy chỉnh) */
+  width: auto;
+  object-fit: contain;
+}
+
+.logoText {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #333;
+  font-style: normal;
+  /* Có thể ẩn chữ trên mobile nếu logo quá to */
+}
+
+
+/* =================================== */
+/* ===== 1. NAV CHO DESKTOP (Giữ nguyên) ===== */
+/* =================================== */
+.desktopNav {
+  display: flex;
+  align-items: center;
+  width: 100%; /* 👈 Chiếm toàn bộ không gian còn lại */
+  flex-grow: 1;
+}
+
+/* === BOT CHÀO MỪNG (Giữ nguyên) === */
+.botWelcome {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0 auto; /* 👈 FIX: Trả lại 'margin: 0 auto' */
+                  /* Đây là mấu chốt để đẩy 2 menu kia ra xa */
+  animation: botFadeIn 1.2s cubic-bezier(0.25, 0.8, 0.25, 1);
+  transform-origin: left center;
+}
+.botImage {
+  height: 40px;
+  width: auto;
+  animation: botFloat 3s ease-in-out infinite;
+}
+.botText {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #0d6efd;
+  font-style: normal;
+  white-space: nowrap;
+  animation: botFloat 3s ease-in-out infinite;
+  animation-delay: 0.15s;
+}
+/* (Các keyframes botFloat, botFadeIn giữ nguyên) */
+@keyframes botFloat { 0% { transform: translateY(0); } 50% { transform: translateY(-3px); } 100% { transform: translateY(0); } }
+@keyframes botFadeIn { from { opacity: 0; transform: translateX(-15px) scale(0.9); } to { opacity: 1; transform: translateX(0) scale(1); } }
+
+/* === MENU CHÍNH (Giữ nguyên) === */
+.navList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 1.5rem;
+  flex-shrink: 0; /* Không co menu trái */
+}
+.navLink {
+  text-decoration: none !important;
+  color: #555 !important;
+  font-weight: 500;
+  font-size: 0.95rem;
+  padding: 10px 0;
+  position: relative;
+  transition: color 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  white-space: nowrap;
+  font-style: normal;
+  cursor: pointer;
+}
+.navLink:visited { color: #555 !important; text-decoration: none !important; }
+.navLink:hover { color: #0d6efd; text-decoration: none; }
+.navLink::after { content: ""; position: absolute; bottom: 0; left: 0; width: 100%; height: 2px; background-color: #0d6efd; transform: scaleX(0); transition: transform 0.3s ease; transform-origin: left; }
+.navLink:hover::after, .navLink.active::after { transform: scaleX(1); }
+.navLink.active { color: #0d6efd !important; font-weight: 600; }
+.caret { font-size: 0.7em; margin-left: 2px; transition: transform 0.2s ease; }
+.dropdown { position: relative; }
+.dropdownMenu { position: absolute; top: 100%; left: 0; background-color: #fff; border: 1px solid #eee; border-radius: 0 0 6px 6px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08); list-style: none; padding: 0.5rem 0; margin: 0; min-width: 190px; opacity: 0; visibility: hidden; transform: translateY(10px); transition: opacity 0.2s ease, visibility 0.2s ease, transform 0.2s ease; z-index: 1001; }
+.dropdown:hover > .dropdownMenu { opacity: 1; visibility: visible; transform: translateY(0); }
+.dropdown:hover > .navLink .caret { transform: rotate(180deg); }
+.dropdownMenu li a, .dropdownMenu li button { display: flex; align-items: center; gap: 0.6rem; padding: 0.7rem 1.2rem; color: #555; text-decoration: none; font-size: 0.9rem; white-space: nowrap; transition: background-color 0.2s ease, color 0.2s ease; background: none; border: none; cursor: pointer; width: 100%; text-align: left; font-style: normal; }
+.dropdownMenu li a:hover, .dropdownMenu li button:hover { background-color: #f8f9fa; color: #0d6efd; }
+.divider { border: none; border-top: 1px solid #f1f1f1; margin: 0.4rem 0; }
+.logoutButton { color: #dc3545; }
+.logoutButton i { font-size: 0.8em; }
+.logoutButton:hover { color: #dc3545; background-color: #fdf2f2; }
+
+/* === NAV BÊN PHẢI (Giữ nguyên) === */
+.rightNav {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex-shrink: 0; /* Không co menu phải */
+}
+.rightNav > .navLink::after { display: none; }
+.rightNav .iconLink:hover { color: #0d6efd; text-decoration: none; }
+.rightNav .navLink i { font-size: 1.1rem; }
+.rightNav .navLink span { margin-left: 0.4rem; font-size: 0.9rem; }
+.userMenu .dropdownMenu { left: auto; right: 0; min-width: 200px; }
+
+
+/* =================================== */
+/* ===== 2. NAV CHO MOBILE (Giữ nguyên) ===== */
+/* =================================== */
+.mobileNav {
+  display: none; /* 👈 Ẩn trên desktop */
+  z-index: 1100;
+  /* Thêm 2 dòng này để nó nằm sát lề phải */
+  margin-left: auto;
+  padding-left: 1rem;
+}
+
+.mobileNavToggle {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 1.5rem; /* Kích thước icon 3 gạch / X */
+  color: #333;
+  z-index: 1102; /* Luôn nằm trên backdrop */
+}
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 1100;
+}
+
+.mobileNavMenu {
+  position: fixed;
+  top: 0;
+  right: -100%; /* 👈 Ẩn bên ngoài màn hình */
+  width: 300px; /* Chiều rộng menu mobile */
+  max-width: 80%;
+  height: 100vh;
+  background-color: #fff;
+  box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+  z-index: 1101;
+  transition: right 0.3s ease-in-out;
+  display: flex;
+  flex-direction: column;
+}
+.mobileNavMenu.open {
+  right: 0; /* 👈 Hiện ra */
+}
+
+.mobileUserInfo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1.5rem 1.25rem;
+  background-color: #f8f9fa;
+  border-bottom: 1px solid #eee;
+}
+.mobileUserInfo i {
+  font-size: 1.5rem;
+  color: #0d6efd;
+}
+.mobileUserInfo span {
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.mobileNavMenu ul {
+  list-style: none;
+  padding: 1rem 0;
+  margin: 0;
+  flex-grow: 1;
+  overflow-y: auto;
+}
+.mobileNavMenu li a,
+.mobileNavMenu li button {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 1rem 1.25rem;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #333 !important;
+  text-decoration: none !important;
+  width: 100%;
+  background: none;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+}
+.mobileNavMenu li a i,
+.mobileNavMenu li button i {
+  width: 20px; /* Căn lề icon cho đẹp */
+  text-align: center;
+  color: #888;
+}
+.mobileNavMenu li a:hover,
+.mobileNavMenu li button:hover {
+  background-color: #f8f9fa;
+  color: #0d6efd !important;
+}
+.mobileNavMenu li a:hover i,
+.mobileNavMenu li button:hover i {
+  color: #0d6efd;
+}
+.logoutButtonMobile {
+  color: #dc3545 !important;
+}
+.logoutButtonMobile i {
+  color: #dc3545 !important;
+}
+.logoutButtonMobile:hover {
+  color: #dc3545 !important;
+  background-color: #fdf2f2 !important;
+}
+
+
+/* === RESET LINK TOÀN CỤC === */
+a,
+a:visited,
+a:hover,
+a:active {
+  text-decoration: none !important;
+  color: inherit !important;
+}
+
+/* === RESPONSIVE (Giữ nguyên) === */
+
+/* Ẩn Desktop Nav, Hiện Mobile Nav */
+@media (max-width: 992px) {
+  .desktopNav {
+    display: none; /* 👈 Ẩn toàn bộ nav desktop */
+  }
+  .mobileNav {
+    display: flex; /* 👈 Hiện nút 3 gạch */
+    align-items: center;
+  }
+  .mainNav {
+    height: 60px; /* Giảm chiều cao header */
+    padding: 0 15px;
+  }
+  .logoText {
+     /* Có thể ẩn chữ 'BOUTIQUE' trên mobile nếu logo to quá */
+     /* display: none; */
+     font-size: 1.4rem;
+  }
+  .logoLink {
+    margin-right: 1rem;
+  }
+}
