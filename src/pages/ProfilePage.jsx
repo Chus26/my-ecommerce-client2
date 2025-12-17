@@ -134,7 +134,12 @@ import { Form, useLoaderData, useNavigation, useActionData } from "react-router-
 import classes from "./ProfilePage.module.css";
 import { getAuthToken } from "../utils/auth";
 
-const BACKEND_URL = process.env.REACT_APP_API_URL || "http://localhost:5000";
+// 👇 SỬA ĐOẠN NÀY: Logic tự động chọn URL 👇
+const isLocal = window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1";
+const BACKEND_URL = isLocal 
+  ? "http://localhost:5000" 
+  : "https://my-ecommerce-server-domr.onrender.com"; 
+// 👆 KẾT THÚC SỬA 👆
 
 const ProfilePage = () => {
   const data = useLoaderData();

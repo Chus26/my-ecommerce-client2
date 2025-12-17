@@ -17,10 +17,12 @@ import { axiosGetProductDetail } from "../services/productServices";
 import socket from "../utils/socket-io";
 import { getAuthToken } from "../utils/auth";
 
-const BACKEND_URL =
-  process.env.REACT_APP_BACKEND_API ||
-  process.env.REACT_APP_API_URL ||
-  "http://localhost:5000";
+// 👇 SỬA ĐOẠN NÀY: Logic tự động chọn URL 👇
+const isLocal = window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1";
+const BACKEND_URL = isLocal 
+  ? "http://localhost:5000" 
+  : "https://my-ecommerce-server-domr.onrender.com"; 
+// 👆 KẾT THÚC SỬA 👆
 
 const DetailPage = () => {
   const dispatch = useDispatch();

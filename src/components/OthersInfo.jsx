@@ -174,8 +174,12 @@
 import React, { useState, useEffect, useRef } from "react";
 import classes from "./OthersInfo.module.css"; // Chúng ta sẽ dùng file CSS mới
 
-// (Giả sử BACKEND_URL được định nghĩa ở đây hoặc import từ file config)
-const BACKEND_URL = process.env.REACT_APP_BACKEND_API || "http://localhost:5000";
+// 👇 SỬA ĐOẠN NÀY: Logic tự động chọn URL 👇
+const isLocal = window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1";
+const BACKEND_URL = isLocal 
+  ? "http://localhost:5000" 
+  : "https://my-ecommerce-server-domr.onrender.com"; 
+// 👆 KẾT THÚC SỬA 👆
 
 // ===================================================================
 // === LOGIC TÁCH BIỆT (Custom Hooks) ===
