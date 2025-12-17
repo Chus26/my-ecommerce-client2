@@ -1,142 +1,137 @@
-/* ===== FILE: Products.module.css (ĐÃ CẬP NHẬT) ===== */
+/* ===== FILE: src/components/Products.module.css (FINAL) ===== */
 
 .products {
   max-width: 75rem;
-  margin: 3rem auto 4rem auto; /* Tăng margin-top */
-  padding: 0 15px; /* Thêm padding ngang */
-  /* font-style: italic; Bỏ global italic */
+  margin: 3rem auto 4rem auto;
+  padding: 0 15px;
 }
 
-/* --- Section Titles --- */
-.products > p:first-of-type { /* "Được làm theo cách khó" */
-  text-align: center; /* Căn giữa */
-  margin-bottom: 0.25rem;
-  font-size: 0.8rem; /* Nhỏ hơn */
+/* --- PHẦN TIÊU ĐỀ (Đã sửa lại selector cho đúng với cấu trúc mới) --- */
+.headerText {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.headerText p {
+  margin: 0 0 0.5rem 0;
+  font-size: 0.85rem;
   color: #6c757d; /* Màu xám */
-  font-weight: 500; /* Hơi đậm */
+  font-weight: 500;
   text-transform: uppercase;
-  letter-spacing: 0.5px;
-  font-style: normal; /* Bỏ italic */
+  letter-spacing: 1px;
+  font-style: italic; /* Thêm chút nghiêng cho "nghệ" */
 }
 
-.products > h3:first-of-type { /* "Sản phẩm thịnh hành..." */
-  text-align: center; /* Căn giữa */
-  font-weight: 700; /* Đậm hơn */
-  color: #212529; /* Màu đen đậm */
-  font-size: 1.6rem; /* To hơn */
+.headerText h3 {
+  font-weight: 700;
+  color: #212529;
+  font-size: 1.6rem;
   text-transform: uppercase;
-  margin-bottom: 2.5rem; /* Tăng khoảng cách dưới */
-  font-style: normal; /* Bỏ italic */
-  letter-spacing: normal; /* Bỏ letter-spacing cũ */
+  font-style: normal;
+  margin: 0;
 }
 
-/* --- Product Grid Container --- */
+/* --- GRID CONTAINER --- */
 .container {
   width: 100%;
-  display: grid; /* Chuyển sang Grid layout */
-  grid-template-columns: repeat(4, 1fr); /* 4 cột bằng nhau */
-  gap: 1.5rem; /* Khoảng cách giữa các card */
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 cột */
+  gap: 1.5rem;
 }
 
-/* --- Individual Product Card --- */
-.container > div {
-  background-color: #fff; /* Nền trắng */
-  border: 1px solid #e9ecef; /* Border nhẹ */
-  border-radius: 8px; /* Bo góc */
-  padding: 1rem; /* Padding bên trong card */
+/* --- PRODUCT CARD (Class .item khớp với JSX) --- */
+.item {
+  background-color: #fff;
+  border: 1px solid #e9ecef;
+  border-radius: 8px;
+  padding: 1rem;
   text-align: center;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05); /* Shadow nhẹ */
-  transition: transform 0.2s ease, box-shadow 0.2s ease; /* Hiệu ứng hover */
-  overflow: hidden; /* Đảm bảo nội dung không tràn */
-  display: flex; /* Dùng flexbox cho nội dung bên trong */
-  flex-direction: column; /* Xếp ảnh, tên, giá theo cột */
-  justify-content: space-between; /* Đẩy giá xuống dưới nếu tên ngắn */
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
 }
 
-.container > div:hover {
-  transform: translateY(-4px); /* Hiệu ứng nâng lên */
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* Shadow đậm hơn */
+.item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
 }
 
-/* Product Image */
-.container img {
+/* Ảnh sản phẩm */
+.item img {
   display: block;
   width: 100%;
-  max-width: 200px; /* Giới hạn chiều rộng tối đa của ảnh */
-  height: auto; /* Chiều cao tự động theo tỷ lệ */
-  aspect-ratio: 1 / 1; /* Giữ tỷ lệ vuông (nếu muốn) */
-  object-fit: contain; /* Thay đổi thành contain để thấy toàn bộ ảnh */
-  margin: 0 auto 1rem auto; /* Căn giữa ảnh và thêm margin dưới */
-  cursor: pointer;
-  /* Bỏ hiệu ứng opacity khi hover ảnh */
-  transition: transform 0.2s ease; /* Thêm hiệu ứng zoom nhẹ khi hover ảnh */
-}
-.container img:hover {
-   transform: scale(1.03); /* Zoom nhẹ ảnh khi hover */
+  height: auto;
+  aspect-ratio: 1 / 1; /* Giữ ảnh vuông */
+  object-fit: contain;
+  margin-bottom: 1rem;
+  transition: transform 0.3s ease;
 }
 
+.item:hover img {
+  transform: scale(1.05); /* Zoom nhẹ ảnh khi hover vào khung */
+  opacity: 0.9;
+}
 
-/* Product Name */
-.container h3 {
-  margin: 0 0 0.5rem 0; /* Chỉ margin dưới */
-  color: #212529; /* Màu đen đậm */
-  font-size: 0.95rem; /* Cỡ chữ vừa phải */
-  font-weight: 600; /* Đậm vừa */
+/* Tên sản phẩm */
+.item h3 {
+  margin: 0 0 0.5rem 0;
+  color: #333;
+  font-size: 1rem;
+  font-weight: 600;
   line-height: 1.4;
-  font-style: normal; /* Bỏ italic */
-  /* Giới hạn 2 dòng cho tên sản phẩm */
-  overflow: hidden;
-  text-overflow: ellipsis;
+  font-style: normal;
+  
+  /* Cắt dòng nếu tên quá dài (tối đa 2 dòng) */
   display: -webkit-box;
-  -webkit-line-clamp: 2; /* Limit to 2 lines (WebKit browsers) */
   line-clamp: 2;
   -webkit-box-orient: vertical;
-  min-height: calc(1.4em * 2); /* Đảm bảo chiều cao tối thiểu cho 2 dòng */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-height: 2.8em; /* Giữ khung không bị nhảy nếu tên ngắn */
 }
 
-/* Product Price */
-.container p {
-  color: #dc3545; /* Màu đỏ nổi bật */
-  font-size: 1.1rem; /* To hơn */
-  font-weight: 700; /* Đậm */
-  margin: 0.5rem 0 0 0; /* Chỉ margin trên */
-  font-style: normal; /* Bỏ italic */
+/* Giá sản phẩm */
+.item p {
+  color: #dc3545; /* Màu đỏ */
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin: auto 0 0 0; /* Đẩy xuống đáy */
+  font-style: normal;
 }
 
-/* --- Products responsive --- */
+/* --- RESPONSIVE --- */
 @media (max-width: 992px) { /* Tablet */
   .container {
-      grid-template-columns: repeat(3, 1fr); /* 3 cột */
-      gap: 1.25rem;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
   }
 }
 
 @media (max-width: 768px) { /* Mobile lớn */
-  .products > h3:first-of-type {
-      font-size: 1.4rem;
-      margin-bottom: 2rem;
+  .headerText h3 {
+    font-size: 1.3rem;
   }
   .container {
-      grid-template-columns: repeat(2, 1fr); /* 2 cột */
-      gap: 1rem;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
   }
-   .container > div {
-      padding: 0.8rem;
-   }
-   .container h3 {
-      font-size: 0.9rem;
-      min-height: calc(1.4em * 2); /* Giữ chiều cao */
-   }
-   .container p {
-      font-size: 1rem;
-   }
+  .item {
+    padding: 0.8rem;
+  }
+  .item h3 {
+    font-size: 0.9rem;
+  }
 }
 
 @media (max-width: 480px) { /* Mobile nhỏ */
-   .products > h3:first-of-type {
-      font-size: 1.2rem;
-   }
-   .container {
-      gap: 0.8rem; /* Giảm gap */
-   }
+  .container {
+    gap: 0.8rem;
+  }
+  .headerText p {
+    font-size: 0.75rem;
+  }
 }
