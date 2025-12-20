@@ -120,7 +120,7 @@ const ShopPage = () => {
               </li>
             </ul>
 
-            <h5>Iphone &amp; Mac</h5>
+            <h5>Sản phẩm chính</h5>
             <ul>
               <li>
                 <Link
@@ -146,18 +146,6 @@ const ShopPage = () => {
                   MacBook
                 </Link>
               </li>
-            </ul>
-
-            <h5>Không dây</h5>
-            <ul>
-              <li>
-                <Link
-                  to="/shop?mode=airpod"
-                  className={searchValue === "airpod" ? classes.active : undefined}
-                >
-                  AirPods
-                </Link>
-              </li>
               <li>
                 <Link
                   to="/shop?mode=watch"
@@ -167,6 +155,8 @@ const ShopPage = () => {
                 </Link>
               </li>
             </ul>
+
+          
             
 
             {/* === KHỐI CODE ĐÃ ĐƯỢC CẬP NHẬT === */}
@@ -202,6 +192,14 @@ const ShopPage = () => {
                   className={searchValue === "case" ? classes.active : undefined}
                 >
                   Ốp lưng
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/shop?mode=airpod"
+                  className={searchValue === "airpod" ? classes.active : undefined}
+                >
+                  AirPods
                 </Link>
               </li>
             </ul>
