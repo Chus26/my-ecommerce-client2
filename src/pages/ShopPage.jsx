@@ -183,7 +183,7 @@ const ShopPage = () => {
                   to="/shop?mode=cable"
                   className={searchValue === "cable" ? classes.active : undefined}
                 >
-                  Dây sạc
+                  Cáp kết nối
                 </Link>
               </li>
               <li>
